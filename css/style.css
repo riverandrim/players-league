@@ -447,6 +447,10 @@ h1, h2, h3 {
 
 .data-table thead { background: #1a1a1a; }
 
+/* Compact standings (home page) */
+.standings-compact th { padding: 0.4rem 0.7rem; font-size: 0.62rem; }
+.standings-compact td { padding: 0.32rem 0.7rem; font-size: 0.78rem; }
+
 .data-table th {
   padding: 0.65rem 0.9rem;
   text-align: left;
