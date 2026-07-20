@@ -352,7 +352,7 @@ h1, h2, h3 {
 .hero h1 .gold { color: var(--blue); }
 
 .hero-motto {
-  color: #666666;
+  color: #d4943a;
   font-size: 0.68rem;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -642,7 +642,7 @@ h1, h2, h3 {
   background: #1a1a1a;
   text-align: center;
   padding: 1.25rem;
-  color: #666666;
+  color: #cfcfcf;
   font-size: 0.75rem;
   border-top: 3px solid var(--blue);
 }
