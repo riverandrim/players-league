@@ -30,15 +30,13 @@
   <!-- Page Header -->
   <section class="page-header">
     <h1><span class="gold">ANALYTICS</span></h1>
-    <p>Points For &bull; Points Against &bull; Expected Wins &bull; Season Summary</p>
+    <p>Expected Wins &bull; Season Summary &bull; All-Time Records &bull; Division War</p>
   </section>
 
   <!-- Tab Switcher -->
   <section class="section" style="padding-bottom:0.5rem;">
     <div class="tab-switcher">
       <button class="tab-btn active" onclick="switchTab('xwins', this)">📊 Expected Wins</button>
-      <button class="tab-btn" onclick="switchTab('pf', this)">🏈 Points For</button>
-      <button class="tab-btn" onclick="switchTab('pa', this)">🛡️ Points Against</button>
       <button class="tab-btn" onclick="switchTab('summary', this)">📈 Season Summary</button>
       <button class="tab-btn" onclick="switchTab('alltime', this)">🏆 All-Time Records</button>
       <button class="tab-btn" onclick="switchTab('recaps', this)">📖 Season Recaps</button>
@@ -52,7 +50,7 @@
   <section id="tab-xwins" class="section analytics-section active">
     <h2 class="section-title">📊 Expected Wins Analysis</h2>
     <div class="gold-line"></div>
-    <p class="section-sub">How many wins would each team have if they played every other team's schedule? Positive discrepancy = lucky. Negative = unlucky. Based on 2025 regular season (Weeks 1–12).</p>
+    <p class="section-sub">The whole luck story in one place: how much you <strong>scored</strong> (Points For) plus what you <strong>faced</strong> (Points Against) drives how many wins you <strong>should</strong> have earned (Expected Wins) — versus what you actually won. Positive discrepancy = lucky. Negative = unlucky. Based on 2025 regular season (Weeks 1–12).</p>
 
     <div style="overflow-x:auto;">
       <table class="data-table">
@@ -172,15 +170,11 @@
         </table>
       </div>
     </div>
-  </section>
 
-  <!-- ============================================================
-       TAB 2 — Points For
-       ============================================================ -->
-  <section id="tab-pf" class="section analytics-section">
-    <h2 class="section-title">🏈 Points For — Week by Week (2025)</h2>
-    <div class="gold-line"></div>
-    <p class="section-sub">Weekly scoring output through the first 12 weeks of the 2025 season. Green = top score that week. Red = bottom score.</p>
+    <!-- Points For (folded in) -->
+    <div style="margin-top:2.5rem;">
+    <h3 style="font-family:'Playfair Display',Georgia,serif;color:var(--amber);font-size:1.2rem;margin-bottom:0.5rem;">🏈 Points For — Week by Week (2025)</h3>
+    <p class="section-sub">Weekly scoring output through the first 12 weeks of the 2025 season — the raw fuel behind expected wins. Green = top score that week. Red = bottom score.</p>
     <div style="overflow-x:auto;">
       <table class="data-table" style="font-size:0.82rem;min-width:900px;">
         <thead>
@@ -231,15 +225,12 @@
       </table>
     </div>
     <p style="color:var(--gray-text);font-size:0.75rem;margin-top:1rem;font-style:italic;">Note: Wk 1–12 data shown. Full season totals differ slightly from final standings which include playoff weeks.</p>
-  </section>
+    </div>
 
-  <!-- ============================================================
-       TAB 3 — Points Against
-       ============================================================ -->
-  <section id="tab-pa" class="section analytics-section">
-    <h2 class="section-title">🛡️ Points Against — Week by Week (2025)</h2>
-    <div class="gold-line"></div>
-    <p class="section-sub">Points scored against each team by week. Lower total = easier schedule. Higher = tougher draw.</p>
+    <!-- Points Against (folded in) -->
+    <div style="margin-top:2.5rem;">
+    <h3 style="font-family:'Playfair Display',Georgia,serif;color:var(--amber);font-size:1.2rem;margin-bottom:0.5rem;">🛡️ Points Against — Week by Week (2025)</h3>
+    <p class="section-sub">Points scored against each team by week — the schedule-luck component. Lower total = easier schedule. Higher = tougher draw.</p>
     <div style="overflow-x:auto;">
       <table class="data-table" style="font-size:0.82rem;min-width:900px;">
         <thead>
@@ -293,10 +284,11 @@
       <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;"><span style="color:var(--green);font-weight:700;">Green</span><span style="color:var(--gray-text);">= fewest points allowed (easiest schedule)</span></div>
       <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;"><span style="color:var(--red);font-weight:700;">Red</span><span style="color:var(--gray-text);">= most points allowed (hardest schedule)</span></div>
     </div>
+    </div>
   </section>
 
   <!-- ============================================================
-       TAB 4 — Season Summary
+       TAB — Season Summary
        ============================================================ -->
   <section id="tab-summary" class="section analytics-section">
     <h2 class="section-title">📈 2025 Season Summary</h2>
