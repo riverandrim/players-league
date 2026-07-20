@@ -8,6 +8,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    select#season-select {
+      background:#ffffff; color:#333333; border:2px solid #e5e5e5;
+      padding:0.7rem 1.4rem; border-radius:4px;
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      font-size:0.95rem; font-weight:700; min-width:220px; cursor:pointer;
+      transition:border-color 0.18s ease;
+    }
+    select#season-select:hover, select#season-select:focus { border-color:#d4943a; outline:none; }
+  </style>
 </head>
 <body>
 
@@ -37,9 +47,8 @@
   <section class="section" style="padding-bottom:0.5rem;">
     <div class="tab-switcher">
       <button class="tab-btn active" onclick="switchTab('xwins', this)">📊 Expected Wins</button>
-      <button class="tab-btn" onclick="switchTab('summary', this)">📈 Season Summary</button>
+      <button class="tab-btn" onclick="switchTab('summary', this)">📈 Season Summaries</button>
       <button class="tab-btn" onclick="switchTab('alltime', this)">🏆 All-Time Records</button>
-      <button class="tab-btn" onclick="switchTab('recaps', this)">📖 Season Recaps</button>
       <button class="tab-btn" onclick="switchTab('divcomp', this)">⚔️ Division War</button>
     </div>
   </section>
@@ -291,69 +300,20 @@
        TAB — Season Summary
        ============================================================ -->
   <section id="tab-summary" class="section analytics-section">
-    <h2 class="section-title">📈 2025 Season Summary</h2>
+    <h2 class="section-title">📈 Season Summaries</h2>
     <div class="gold-line"></div>
-    <p class="section-sub">The stories the standings don't tell. Based on Weeks 1–12 data.</p>
+    <p class="section-sub">Pick a season to see the recap and the stories behind the standings.</p>
 
-    <div class="card-grid">
-
-      <div class="summary-card">
-        <h3>👑 Top Scorer</h3>
-        <p><strong style="color:var(--cream);">Adam Stockwell</strong> — 1,586.5 PF through 12 weeks (132.2 avg/week). Led the league in scoring and won the title. Rare.</p>
-      </div>
-
-      <div class="summary-card">
-        <h3>🔥 Best Single Week</h3>
-        <p><strong style="color:var(--cream);">Peter Lundquist</strong> — 181.5 pts in Week 12. An enormous output. Still couldn't crack the top 4 final standing.</p>
-      </div>
-
-      <div class="summary-card">
-        <h3>🍀 Luckiest Team</h3>
-        <p><strong style="color:var(--cream);">CJ Woda</strong> — 5 actual wins on just 3.1 expected. Benefited massively from schedule luck. Positive variance: +1.9.</p>
-      </div>
-
-      <div class="summary-card">
-        <h3>💀 Unluckiest Team</h3>
-        <p><strong style="color:var(--cream);">Grant Sawyer</strong> — Only 4 wins on 5.7 expected. Played the 2nd-hardest schedule. Could have easily been 7-5.</p>
-      </div>
-
-      <div class="summary-card">
-        <h3>📉 Lowest Single Week</h3>
-        <p><strong style="color:var(--cream);">Kaleb Feahn</strong> — 59.8 pts in Week 8. The floor of the season. Painful.</p>
-      </div>
-
-      <div class="summary-card">
-        <h3>🎯 Most Consistent</h3>
-        <p><strong style="color:var(--cream);">CJ Woda</strong> — Lowest scoring variance in the league (14.9 std dev). The most predictable weekly output.</p>
-      </div>
-
-      <div class="summary-card">
-        <h3>💪 Hardest Schedule</h3>
-        <p><strong style="color:var(--cream);">Adam Stockwell</strong> — Faced the toughest slate (4.92 avg wins against). Won anyway. That's what separates champions.</p>
-      </div>
-
-      <div class="summary-card">
-        <h3>😴 Easiest Schedule</h3>
-        <p><strong style="color:var(--cream);">Isaac Douglas</strong> — Opponents averaged 7.25 wins against his schedule. The most favorable draw in the league.</p>
-      </div>
-
-      <div class="summary-card">
-        <h3>🎢 Biggest Swings</h3>
-        <p><strong style="color:var(--cream);">Multiple teams</strong> — Adam's Week 7 high (170.7) vs Week 5 low (73.3) is a 97-point swing. Fantasy in a nutshell.</p>
-      </div>
-
+    <div style="text-align:center;margin:1.25rem 0 2rem;">
+      <select id="season-select" onchange="renderSeason(this.value)">
+        <option value="2025">2025 Season</option>
+        <option value="2024">2024 Season</option>
+        <option value="2023">2023 Season</option>
+        <option value="2022">2022 Season</option>
+      </select>
     </div>
 
-    <!-- Champion Call-Out -->
-    <div style="background:linear-gradient(135deg,var(--navy-mid),var(--navy));border:2px solid var(--amber);border-radius:16px;padding:2rem;text-align:center;margin-top:2.5rem;position:relative;overflow:hidden;">
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(232,168,56,0.05) 0%,transparent 70%);pointer-events:none;"></div>
-      <div style="position:relative;z-index:1;">
-        <div style="font-size:0.7rem;color:var(--amber);letter-spacing:3px;text-transform:uppercase;margin-bottom:0.75rem;font-family:'Inter',sans-serif;">The Verdict</div>
-        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--cream);margin-bottom:0.5rem;">Adam Stockwell Earned It</h3>
-        <p style="color:var(--text-body);max-width:600px;margin:0 auto;">Led the league in scoring, faced the hardest schedule, finished 10-4. While CJ Woda (+1.9 luck) and others rode favorable draws, Adam's title was built on production. No asterisk needed.</p>
-      </div>
-    </div>
-
+    <div id="season-content"></div>
   </section>
 
   <!-- ============================================================
@@ -408,56 +368,7 @@
   </section>
 
   <!-- ============================================================
-       TAB 6 — Season Recaps
-       ============================================================ -->
-  <section id="tab-recaps" class="section analytics-section">
-    <h2 class="section-title">📖 Season Recaps</h2>
-    <div class="gold-line"></div>
-    <p class="section-sub">Four seasons. Four champions. Here's how it went down.</p>
-
-    <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:800px;margin:2rem auto 0;">
-
-      <!-- 2022 -->
-      <div style="background:#fff;border:1px solid #e5e5e5;border-left:5px solid #d4943a;border-radius:8px;padding:1.75rem 2rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
-          <span style="background:#d4943a;color:#fff;padding:0.35rem 1rem;border-radius:4px;font-weight:800;font-size:1rem;letter-spacing:1px;">2022</span>
-          <span style="font-weight:700;color:#333;font-size:1rem;">🏆 Peter Lundquist — CHAMPION</span>
-        </div>
-        <p style="color:#555;line-height:1.75;font-size:0.95rem;">Peter Lundquist's legendary 13-1 season ended exactly how it should have — with a championship. He posted a league-record 1,936.1 points for the year and rode a dominant two-week playoff run to the title. In a 4-team playoff, nobody could touch the inaugural champion.</p>
-      </div>
-
-      <!-- 2023 -->
-      <div style="background:#fff;border:1px solid #e5e5e5;border-left:5px solid #d4943a;border-radius:8px;padding:1.75rem 2rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
-          <span style="background:#d4943a;color:#fff;padding:0.35rem 1rem;border-radius:4px;font-weight:800;font-size:1rem;letter-spacing:1px;">2023</span>
-          <span style="font-weight:700;color:#333;font-size:1rem;">🏆 Kaleb Feahn — CHAMPION</span>
-        </div>
-        <p style="color:#555;line-height:1.75;font-size:0.95rem;">Kaleb Feahn pulled off the ultimate Cinderella story — entering the playoffs as the 5 seed and winning three straight games to claim the title. Logan Rezac held the #1 seed all season but couldn't convert when it mattered. The first upset champion in league history.</p>
-      </div>
-
-      <!-- 2024 -->
-      <div style="background:#fff;border:1px solid #e5e5e5;border-left:5px solid #d4943a;border-radius:8px;padding:1.75rem 2rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
-          <span style="background:#d4943a;color:#fff;padding:0.35rem 1rem;border-radius:4px;font-weight:800;font-size:1rem;letter-spacing:1px;">2024</span>
-          <span style="font-weight:700;color:#333;font-size:1rem;">🏆 Noah Thesing — CHAMPION</span>
-        </div>
-        <p style="color:#555;line-height:1.75;font-size:0.95rem;">Noah Thesing became the second consecutive upset champion, winning from the 7 seed with three dominant playoff performances including a 170.7 semifinal explosion. Logan held the #1 seed for the second straight year and lost in the first round — again. The #1 seed curse was officially born.</p>
-      </div>
-
-      <!-- 2025 -->
-      <div style="background:#fff;border:1px solid #e5e5e5;border-left:5px solid #d4943a;border-radius:8px;padding:1.75rem 2rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;">
-          <span style="background:#d4943a;color:#fff;padding:0.35rem 1rem;border-radius:4px;font-weight:800;font-size:1rem;letter-spacing:1px;">2025</span>
-          <span style="font-weight:700;color:#333;font-size:1rem;">🏆 Adam Stockwell — CHAMPION</span>
-        </div>
-        <p style="color:#555;line-height:1.75;font-size:0.95rem;">Adam Stockwell broke the #1 seed curse, entering as the top seed and finishing the job with a dominant 150.3 championship performance over Mitchell Max. Meanwhile, Logan Rezac hit rock bottom at 4-10, earning the last-place punishment: wearing a dress to golf.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-       TAB 7 — Division Comparison
+       TAB — Division Comparison
        ============================================================ -->
   <section id="tab-divcomp" class="section analytics-section">
     <style>
@@ -672,6 +583,81 @@
       });
       document.getElementById('alltime-luck').innerHTML = html;
     }
+
+    /* ===================== SEASON SUMMARIES ===================== */
+    var SEASONS = {
+      '2022': {
+        champion: 'Peter Lundquist', runnerUp: 'Isaac Douglas',
+        recap: "Peter Lundquist's inaugural-season dominance ended exactly how it should have \u2014 with a championship. He posted a league-record 1,936.1 points and cruised to a 13-1 regular season, then rode a two-week playoff format to the title. Isaac Douglas (11-3) was the only other team to stay in his rearview. The first champion in league history set a standard that still hasn't been touched.",
+        cards: [
+          ['\ud83c\udfc6','Champion','Peter Lundquist','13-1, league-record 1,936.1 PF. The most dominant season ever recorded.'],
+          ['\ud83e\udd48','Runner-Up','Isaac Douglas','11-3 with "A Slap in the Face." The closest anyone got to Peter all year.'],
+          ['\ud83d\udd25','Top Single Week','Christian Massett','189.3 in Week 7 \u2014 the highest score of the 2022 season.'],
+          ['\ud83d\udcc8','Scoring Leader','Peter Lundquist','1,936.1 PF, still the single-season league record.'],
+          ['\ud83d\udcaa','Best of the Rest','Christian Massett','10-4 with the 3rd-most points. Quietly excellent behind the top two.'],
+          ['\ud83e\udd44','Cellar','Grant Sawyer','3-11, fewest points in the league (1,347.7). Nowhere to go but up.']
+        ]
+      },
+      '2023': {
+        champion: 'Kaleb Feahn', runnerUp: 'Logan Rezac',
+        recap: "The first Cinderella. Kaleb Feahn snuck into the playoffs as the 5 seed and won three straight to steal the title \u2014 a year after finishing dead last at 3-11. Logan Rezac earned the #1 seed at 10-4 but couldn't convert. Grant Sawyer led the entire league in scoring (1,846.0 PF) yet finished 2nd in the standings, a preview of the luck/production gap that defines this league.",
+        cards: [
+          ['\ud83c\udfc6','Champion','Kaleb Feahn','Worst-to-first: 3-11 in 2022 to 2023 champ as the 5 seed. The first upset title.'],
+          ['\ud83e\udd48','#1 Seed (No Ring)','Logan Rezac','10-4 top seed, couldn\u2019t close. The curse begins.'],
+          ['\ud83d\udd25','Top Single Week','Adam Stockwell','205.6 in Week 10 \u2014 the all-time single-week league record.'],
+          ['\ud83d\udcc8','Scoring Leader','Grant Sawyer','1,846.0 PF led the league \u2014 but only good for a 2nd-place 9-5 finish.'],
+          ['\ud83c\udfa2','Biggest Fall','Peter Lundquist','From 13-1 champ to 4-10. The sharpest title-defense collapse in league history.'],
+          ['\ud83d\udcaa','Steady Riser','Adam Stockwell','9-5 and the record week. Building toward something.']
+        ]
+      },
+      '2024': {
+        champion: 'Noah Thesing', runnerUp: 'Logan Rezac',
+        recap: "Lightning struck twice. Noah Thesing became the second straight upset champion, winning it all from the 7 seed \u2014 capped by a 170.7 playoff explosion. Logan Rezac held the #1 seed for the SECOND consecutive year (9-5) and again fell short. The #1 Seed Curse was now officially real. Peter Lundquist bounced back with the league\u2019s top scoring output (1,804.8 PF) and a 2nd-place finish.",
+        cards: [
+          ['\ud83c\udfc6','Champion','Noah Thesing','Won it all from the 7 seed \u2014 back-to-back Cinderella era. A 170.7 playoff eruption sealed it.'],
+          ['\ud83e\udd48','#1 Seed (No Ring)','Logan Rezac','9-5 top seed, out early \u2014 again. Two straight years, two collapses.'],
+          ['\ud83d\udd25','Comeback Scorer','Peter Lundquist','League-high 1,804.8 PF and an 8-6 rebound after the 2023 crash.'],
+          ['\ud83d\udd25','Top Single Week','Noah Thesing','170.7 in the Week-16 semifinal \u2014 the swing that won a title.'],
+          ['\ud83d\udcc8','Scoring Leader','Peter Lundquist','1,804.8 PF, tops in the league.'],
+          ['\ud83e\udd44','Cellar','Leif Engen','3-11, fewest points (1,388.1). A rough one for Joey Lunchbox.']
+        ]
+      },
+      '2025': {
+        champion: 'Adam Stockwell', runnerUp: 'John Lundquist',
+        recap: "The curse broke. Adam Stockwell entered as the #1 seed AND finished the job \u2014 the first top seed to win it all \u2014 with a 150.3 championship performance over Mitchell Max. He led the league in scoring (1,939.3 PF) and faced the hardest schedule, so there\u2019s no asterisk. John Lundquist (10-4, \"R.I.C.O\") pushed him all year. At the bottom, Logan Rezac hit rock bottom at 4-10 and earned the dress-to-golf punishment.",
+        cards: [
+          ['\ud83c\udfc6','Champion','Adam Stockwell','10-4, broke the #1-seed curse. Led the league in scoring (1,939.3 PF) the hard way.'],
+          ['\ud83e\udd48','Runner-Up','John Lundquist','10-4 "R.I.C.O" \u2014 tied the champ\u2019s record, pushed him to the end.'],
+          ['\ud83c\udf40','Luckiest','CJ Woda','5 wins on just 3.1 expected (+1.9). Rode the schedule all year.'],
+          ['\ud83d\udc80','Unluckiest','Grant Sawyer','4 wins on 5.7 expected. 2nd-hardest slate. Deserved better.'],
+          ['\ud83d\udcaa','Hardest Schedule','Adam Stockwell','Faced the toughest slate (4.92 avg wins against) \u2014 and won anyway.'],
+          ['\ud83d\udc57','Last Place','Logan Rezac','4-10, dead last. The dress-to-golf punishment awaits.']
+        ]
+      }
+    };
+
+    function renderSeason(year) {
+      var s = SEASONS[year];
+      if (!s) return;
+      var recapHtml =
+        '<div style="background:#fff;border:1px solid #e5e5e5;border-left:5px solid #d4943a;border-radius:8px;padding:1.5rem 1.75rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);max-width:820px;margin:0 auto 2rem;">' +
+          '<div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.9rem;flex-wrap:wrap;">' +
+            '<span style="background:#d4943a;color:#fff;padding:0.35rem 1rem;border-radius:4px;font-weight:800;font-size:1rem;letter-spacing:1px;">' + year + '</span>' +
+            '<span style="font-weight:700;color:#333;font-size:1rem;">\ud83c\udfc6 ' + s.champion + ' \u2014 CHAMPION</span>' +
+          '</div>' +
+          '<p style="color:#555;line-height:1.75;font-size:0.95rem;">' + s.recap + '</p>' +
+        '</div>';
+      var cardsHtml = '<div class="card-grid">';
+      s.cards.forEach(function(c) {
+        cardsHtml += '<div class="summary-card"><h3>' + c[0] + ' ' + c[1] + '</h3>' +
+          '<p><strong style="color:var(--cream);">' + c[2] + '</strong> \u2014 ' + c[3] + '</p></div>';
+      });
+      cardsHtml += '</div>';
+      document.getElementById('season-content').innerHTML = recapHtml + cardsHtml;
+    }
+
+    // initial render
+    renderSeason('2025');
   </script>
 </body>
 </html>
