@@ -77,7 +77,7 @@
     <div class="ticker-track">
       <div class="ticker-inner">
         <span>🏆 2025 Champion: Adam Stockwell — "Sutton Deez Nutz" 10-4, 1,939.3 PF</span>
-        <span>🔥 All-time single-week record: Peter Lundquist 265.9 pts — Week 15, 2022</span>
+        <span>🔥 All-time single-week record: Adam Stockwell 205.6 pts — Week 10, 2023</span>
         <span>👗 Logan Rezac: 2025 last place — dress for golf punishment</span>
         <span>📊 4 seasons, 4 different champions — zero repeat winners</span>
         <span>👑 Career wins leader: Adam Stockwell 34-22 (.607)</span>
@@ -127,6 +127,12 @@
 
       <!-- Achievement Banners -->
       <div id="tp-banners" style="margin-bottom:1.1rem;display:flex;flex-wrap:wrap;gap:0;"></div>
+
+      <!-- Franchise Recap -->
+      <div class="info-block" style="margin-bottom:1.1rem;">
+        <h3>📖 Franchise Recap</h3>
+        <p id="tp-article" style="font-size:0.95rem;line-height:1.7;color:#333333;"></p>
+      </div>
 
       <!-- Rival -->
       <div class="info-block" style="margin-bottom:1.1rem;">
@@ -191,6 +197,8 @@
       document.getElementById('tp-rival').innerHTML =
         'Biggest rivalry: <strong style="color:#333333;font-size:1rem;">' + t.rival + '</strong>' +
         ' — All-time record: <strong style="color:#0068b3;">' + t.rival_rec + '</strong>';
+      var articleEl = document.getElementById('tp-article');
+      if (articleEl) articleEl.textContent = t.article || '';
       document.getElementById('tp-seasons').innerHTML = t.seasons_html;
       document.getElementById('tp-h2h').innerHTML = t.h2h_html;
       document.getElementById('tp-best').textContent = t.best_score;
