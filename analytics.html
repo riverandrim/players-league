@@ -61,8 +61,8 @@
     <div class="gold-line"></div>
     <p class="section-sub">The whole luck story in one place: how much you <strong>scored</strong> (Points For) plus what you <strong>faced</strong> (Points Against) drives how many wins you <strong>should</strong> have earned (Expected Wins) — versus what you actually won. Positive discrepancy = lucky. Negative = unlucky. Based on 2025 regular season (Weeks 1–12).</p>
 
-    <div style="overflow-x:auto;">
-      <table class="data-table">
+    <div class="table-scroll" style="overflow-x:auto;">
+      <table class="data-table sticky-first">
         <thead>
           <tr>
             <th>#</th>
@@ -153,8 +153,8 @@
     <div style="margin-top:2.5rem;">
       <h3 style="font-family:'Playfair Display',Georgia,serif;color:var(--amber);font-size:1.2rem;margin-bottom:0.5rem;">Schedule Difficulty</h3>
       <p class="section-sub">Average wins an opponent would earn playing each team's schedule. Higher = easier schedule, lower = harder schedule.</p>
-      <div style="overflow-x:auto;">
-        <table class="data-table">
+      <div class="table-scroll" style="overflow-x:auto;">
+        <table class="data-table sticky-first">
           <thead>
             <tr>
               <th>Owner</th>
@@ -184,8 +184,8 @@
     <div style="margin-top:2.5rem;">
     <h3 style="font-family:'Playfair Display',Georgia,serif;color:var(--amber);font-size:1.2rem;margin-bottom:0.5rem;">🏈 Points For — Week by Week (2025)</h3>
     <p class="section-sub">Weekly scoring output through the first 12 weeks of the 2025 season — the raw fuel behind expected wins. Green = top score that week. Red = bottom score.</p>
-    <div style="overflow-x:auto;">
-      <table class="data-table" style="font-size:0.82rem;min-width:900px;">
+    <div class="table-scroll" style="overflow-x:auto;">
+      <table class="data-table sticky-first" style="font-size:0.82rem;min-width:900px;">
         <thead>
           <tr>
             <th>Wk</th>
@@ -240,8 +240,8 @@
     <div style="margin-top:2.5rem;">
     <h3 style="font-family:'Playfair Display',Georgia,serif;color:var(--amber);font-size:1.2rem;margin-bottom:0.5rem;">🛡️ Points Against — Week by Week (2025)</h3>
     <p class="section-sub">Points scored against each team by week — the schedule-luck component. Lower total = easier schedule. Higher = tougher draw.</p>
-    <div style="overflow-x:auto;">
-      <table class="data-table" style="font-size:0.82rem;min-width:900px;">
+    <div class="table-scroll" style="overflow-x:auto;">
+      <table class="data-table sticky-first" style="font-size:0.82rem;min-width:900px;">
         <thead>
           <tr>
             <th>Wk</th>
@@ -325,8 +325,8 @@
 
     <!-- All-Time Standings -->
     <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">Career Standings</h3>
-    <div style="overflow-x:auto;margin-bottom:2rem;">
-    <table class="data-table">
+    <div class="table-scroll" style="overflow-x:auto;margin-bottom:2rem;">
+    <table class="data-table sticky-first">
       <thead><tr><th>#</th><th>Owner</th><th>W</th><th>L</th><th>Win%</th><th>Career PF</th></tr></thead>
       <tbody id="alltime-standings"></tbody>
     </table>
@@ -334,8 +334,8 @@
 
     <!-- Best Single Week -->
     <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">🔥 Best Single Week Scores</h3>
-    <div style="overflow-x:auto;margin-bottom:2rem;">
-    <table class="data-table">
+    <div class="table-scroll" style="overflow-x:auto;margin-bottom:2rem;">
+    <table class="data-table sticky-first">
       <thead><tr><th>#</th><th>Owner</th><th>Score</th><th>When</th></tr></thead>
       <tbody id="alltime-bestweek"></tbody>
     </table>
@@ -343,8 +343,8 @@
 
     <!-- Champions -->
     <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">🏆 Season Champions</h3>
-    <div style="overflow-x:auto;margin-bottom:2rem;">
-    <table class="data-table">
+    <div class="table-scroll" style="overflow-x:auto;margin-bottom:2rem;">
+    <table class="data-table sticky-first">
       <thead><tr><th>Year</th><th>Champion</th></tr></thead>
       <tbody>
         <tr><td style="font-weight:700;">2025</td><td>Adam Stockwell</td></tr>
@@ -358,8 +358,8 @@
     <!-- All-Time Luck Estimate -->
     <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;">🍀 All-Time Luck Rankings</h3>
     <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:0.75rem;">Teams ranked by PF vs actual wins. If you score a lot but don't win as much, you're unlucky. Positive = lucky, negative = unlucky.</p>
-    <div style="overflow-x:auto;margin-bottom:2rem;">
-    <table class="data-table">
+    <div class="table-scroll" style="overflow-x:auto;margin-bottom:2rem;">
+    <table class="data-table sticky-first">
       <thead><tr><th>#</th><th>Owner</th><th>W</th><th>PF Rank</th><th>Win Rank</th><th>Luck</th></tr></thead>
       <tbody id="alltime-luck"></tbody>
     </table>

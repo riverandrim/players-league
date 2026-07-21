@@ -853,3 +853,59 @@ h1, h2, h3 {
   .timeline { padding-left: 1.75rem; }
   .timeline-dot { left: -1.75rem; }
 }
+
+/* ============================================
+   PHONE POLISH (<=480px) — most guys view on iPhone
+   ============================================ */
+@media (max-width: 480px) {
+  /* Tighter chrome so content gets the width */
+  .section { padding: 1.25rem 0.9rem; }
+  .hero, .page-header { padding: 1.75rem 1rem 1.4rem; }
+  .page-header h1 { font-size: clamp(1.6rem, 8vw, 2.2rem); }
+
+  /* Readable headings/body on small screens */
+  .section-title { font-size: 1.15rem; }
+  .section-sub { font-size: 0.85rem; }
+
+  /* Cards go full width, comfy spacing */
+  .card-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+  .card, .summary-card, .award-card { padding: 1rem 1.1rem; }
+
+  /* Wide stat tables: momentum scroll + swipe affordance */
+  .table-scroll, [style*="overflow-x:auto"] {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    position: relative;
+  }
+  /* subtle right-edge fade hinting there's more to swipe */
+  .table-scroll::after {
+    content: "";
+    position: sticky; right: 0; top: 0;
+    float: right;
+    width: 26px; height: 100%;
+    margin-left: -26px;
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.9));
+    pointer-events: none;
+  }
+  .data-table th, .data-table td {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+  /* keep the first column (names) pinned while scrolling stats */
+  .data-table.sticky-first th:first-child,
+  .data-table.sticky-first td:first-child {
+    position: sticky; left: 0; z-index: 2;
+    background: #ffffff;
+    box-shadow: 2px 0 4px rgba(0,0,0,0.06);
+  }
+  .data-table.sticky-first thead th:first-child { z-index: 3; }
+
+  /* Bigger tap targets */
+  .nav-links a { height: 48px; font-size: 0.9rem; }
+  .tab-btn { padding: 0.6rem 0.95rem; font-size: 0.72rem; }
+  .btn, button, .enter-btn { min-height: 44px; }
+
+  /* Prevent iOS auto-zoom on any form controls */
+  input, select, textarea { font-size: 16px; }
+}

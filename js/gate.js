@@ -67,7 +67,7 @@ function showGrandEntrance() {
 
         <!-- Title -->
         <div class="gate-logo" style="margin-bottom:0.15rem;">
-          <h1 style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:clamp(2.1rem,8vw,3.4rem);font-weight:900;color:#ffffff;letter-spacing:-1px;text-transform:uppercase;line-height:1.05;">PLAYERS LEAGUE</h1>
+          <h1 style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:clamp(1.9rem,7.5vw,3.4rem);font-weight:900;color:#ffffff;letter-spacing:-0.5px;text-transform:uppercase;line-height:1.05;overflow-wrap:break-word;word-break:break-word;max-width:100%;">PLAYERS LEAGUE</h1>
         </div>
 
         <!-- Subtitle -->
