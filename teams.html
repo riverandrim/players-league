@@ -10,7 +10,7 @@
     #tp-h2h > div,
     #tp-seasons > div {
       border-bottom: 1px solid #e5e5e5 !important;
-      padding: 0.45rem 0.1rem !important;
+      padding: 0.5rem 0.1rem !important;
     }
     #tp-h2h > div:last-child,
     #tp-seasons > div:last-child {
@@ -19,6 +19,43 @@
     /* Ensure readable text in data-driven content */
     #tp-h2h span:first-child,
     #tp-seasons span:first-child { color: #333333 !important; font-weight: 500; }
+
+    /* Season records: force a clean aligned grid instead of squished flex
+       Columns: Year | W-L | PF | Team name (name truncates, never jumbles) */
+    #tp-seasons > div {
+      display: grid !important;
+      grid-template-columns: 3.2rem 3.2rem 5.5rem 1fr !important;
+      align-items: center !important;
+      column-gap: 0.5rem !important;
+    }
+    #tp-seasons > div > span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    /* Team-name column (4th span) can use the remaining space, right-aligned */
+    #tp-seasons > div > span:nth-child(4) {
+      text-align: right;
+      color: #666666 !important;
+    }
+    /* Head-to-head rows: keep two-column layout tidy */
+    #tp-h2h > div {
+      display: grid !important;
+      grid-template-columns: 1fr auto !important;
+      align-items: center !important;
+      column-gap: 0.75rem !important;
+    }
+
+    @media (max-width: 480px) {
+      /* Narrow phone: Year | W-L | PF | Name(flex, truncates) */
+      #tp-seasons > div {
+        grid-template-columns: 2.6rem 2.8rem 4.4rem 1fr !important;
+        column-gap: 0.4rem !important;
+        font-size: 0.8rem !important;
+      }
+      #tp-seasons > div > span:nth-child(3) { font-size: 0.74rem !important; }
+      #tp-seasons > div > span:nth-child(4) { font-size: 0.72rem !important; }
+    }
 
     select#team-select {
       background: #ffffff;
