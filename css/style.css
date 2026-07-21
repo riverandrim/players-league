@@ -909,3 +909,64 @@ h1, h2, h3 {
   /* Prevent iOS auto-zoom on any form controls */
   input, select, textarea { font-size: 16px; }
 }
+
+/* ============================================================
+   SITE-WIDE POLISH PRIMITIVES  (opt-in via <body class="polish">)
+   Senior-dev pass: reveal-on-scroll, hover lift, animated
+   underlines, count-up, smooth transitions. GPU-friendly,
+   fully gated behind prefers-reduced-motion.
+   ============================================================ */
+
+/* Reveal-on-scroll: elements tagged .reveal fade+rise in */
+.polish .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.polish .reveal.in { opacity: 1; transform: none; }
+/* stagger helper for grids */
+.polish .reveal.d1 { transition-delay: .06s; }
+.polish .reveal.d2 { transition-delay: .12s; }
+.polish .reveal.d3 { transition-delay: .18s; }
+.polish .reveal.d4 { transition-delay: .24s; }
+
+/* Animated gold underline under section titles */
+.polish .section-title { position: relative; }
+.polish .gold-line { position: relative; overflow: hidden; }
+.polish .gold-line::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--amber), transparent);
+  transform: translateX(-100%); transition: transform .7s ease;
+}
+.polish .gold-line.in::after { transform: translateX(0); }
+
+/* Card hover lift — applies to the common card shells + inline "card-ish" divs */
+.polish .card,
+.polish .summary-card,
+.polish .award-card,
+.polish .data-table {
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.polish .card:hover,
+.polish .summary-card:hover,
+.polish .award-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Champion / stat cards (inline-styled divs) get a lift via a shared hook class */
+.polish .lift { transition: transform .18s ease, box-shadow .18s ease; }
+.polish .lift:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(0,0,0,0.16); }
+
+/* Table row hover for readability on desktop */
+.polish .data-table tbody tr { transition: background .15s ease; }
+.polish .data-table tbody tr:hover { background: rgba(0,104,179,0.06); }
+
+/* Count-up numbers start hidden until animated (only if JS runs) */
+.polish .countup[data-target] { font-variant-numeric: tabular-nums; }
+
+/* Smooth anchor scrolling site-wide */
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .polish .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .polish .gold-line::after { transform: translateX(0) !important; transition: none !important; }
+  .polish .card, .polish .summary-card, .polish .award-card, .polish .lift, .polish .data-table tbody tr { transition: none !important; }
+}
